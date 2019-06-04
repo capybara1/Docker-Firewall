@@ -12,5 +12,5 @@ LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.build-date="$BUILD_DATE" \
       org.label-schema.dockerfile="/Dockerfile"
 RUN apk --no-cache add iptables
-VOLUME /etc/iptables
-ENTRYPOINT exec /sbin/iptables-restore -n < /etc/iptables/state
+VOLUME /host/etc/iptables
+ENTRYPOINT exec /sbin/iptables-restore -n < /host/etc/iptables/state
