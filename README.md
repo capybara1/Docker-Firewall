@@ -20,14 +20,15 @@ Articles that inspired this solution
 
 ### Command Line
 
+Assuming the desired file with the output from `iptables-restore` is located at `/etc/iptables/state`
+
 ```bash
 docker run \
---rm \
---cap-add=NET_ADMIN \
---cap-add=NET_RAW \
---net=host \
--v /etc/iptables/state:/etc/iptables/state:ro \
-capybara1/firewall:latest
+  --rm \
+  --cap-add=NET_ADMIN \
+  --net=host \
+  -v /etc/iptables:/host/etc/iptables:ro \
+  capybara1/firewall:1.0
 ```
 
 ### Cloud-Init (RancherOS)
@@ -46,14 +47,10 @@ rancher:
       net: host
       cap_add:
       - NET_ADMIN
-      - NET_RAW
-      volumes_from:
-      - user-volumes
       volumes:
-      - /etc/iptables/state:/etc/iptables/state:ro
+      - /etc/iptables:/host/etc/iptables:ro
       labels:
-        io.rancher.os.after: wait-for-network, cloud-init
-        io.rancher.os.scope: system
+        io.rancher.os.after: wait-for-network, console
         io.rancher.os.detach: "false"
         io.rancher.os.remove: "true"
 ```
