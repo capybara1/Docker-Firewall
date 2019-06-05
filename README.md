@@ -1,5 +1,9 @@
 # Firewall
 
+[![](https://images.microbadger.com/badges/version/capybara1/firewall.svg)](https://microbadger.com/images/capybara1/firewall "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/license/capybara1/firewall.svg)](https://microbadger.com/images/capybara1/firewall "Get your own license badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/capybara1/firewall.svg)](https://microbadger.com/images/capybara1/firewall "Get your own image badge on microbadger.com")
+
 ## Motivation
 
 Primarily a iptables based firewall script, packaged with the required binaries
