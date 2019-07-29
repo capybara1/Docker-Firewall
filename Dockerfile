@@ -12,6 +12,6 @@ LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.vcs-ref="$VCS_REF" \
       org.label-schema.build-date="$BUILD_DATE" \
       org.label-schema.dockerfile="/Dockerfile"
-RUN apk --no-cache add iptables
-VOLUME /host/etc/iptables
-ENTRYPOINT exec /sbin/iptables-restore -n < /host/etc/iptables/state
+RUN apk --no-cache add iptables ip6tables
+VOLUME /etc/iptables
+VOLUME /etc/ip6tables
